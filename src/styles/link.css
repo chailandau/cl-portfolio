@@ -1,0 +1,34 @@
+/* Link underline on hover */
+.link-underline {
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  color: inherit;
+}
+
+.link-underline-text {
+  position: relative;
+  color: inherit;
+}
+
+.link-underline-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  z-index: -1;
+  display: none;
+}
+
+.link-underline:hover .link-underline-text::before {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-underline-text::before {
+    transition: none;
+  }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@tanstack/react-router';
+import { Link } from '@/components/Link';
 import type { FC } from 'react';
 
 import { cn } from '@/lib/utils/cn';
@@ -39,9 +39,7 @@ export const Menu: FC<MenuProps> = ({
                   key={menuItem.href}
                   to={menuItem.href}
                   className='font-mono text-xl tablet-lg:text-base justify-between w-auto tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold'
-                    // underline={false}
                   onClick={handleClick}
-                // ariaLabel={menuLabel || ''}
                 >
                     {menuItem.label}
                 </Link>

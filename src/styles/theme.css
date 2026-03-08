@@ -1,0 +1,55 @@
+@theme {
+  --color-*: initial;
+  --breakpoint-*: initial;
+
+  --color-gray-50: #f7f9ff;
+  --color-gray-100: #f6f6f6;
+  --color-gray-200: #f3f4ff;
+  --color-gray-400: #656a7c;
+  --color-gray-500: #555564;
+  --color-gray-700: #282731;
+  --color-gray-800: #17171a;
+  --color-gray-900: #0a1109;
+
+  --color-blue-100: #d7efff;
+  --color-blue-500: #3422ff;
+
+  --color-aqua-400: #a6ffea;
+  --color-aqua-500: #66f9d6;
+
+  --color-pink-300: #ffcfef;
+  --color-pink-500: #ffa2df;
+
+  --color-purple-50: #eae7ff;
+  --color-purple-100: #e2def9;
+  --color-purple-400: #b4baff;
+
+  --breakpoint-mobile-md: 375px;
+  --breakpoint-mobile-lg: 420px;
+  --breakpoint-tablet: 600px;
+  --breakpoint-tablet-lg: 768px;
+  --breakpoint-laptop: 992px;
+  --breakpoint-desktop-sm: 1200px;
+  --breakpoint-desktop: 1600px;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+:root {
+  --background: var(--color-purple-50);
+  --background-grid: var(--color-purple-100);
+  --foreground: var(--color-gray-900);
+}
+
+.dark {
+  --background: var(--color-gray-900);
+  --background-grid: var(--color-gray-700);
+  --foreground: var(--color-gray-50);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-grid: var(--background-grid);
+  --color-foreground: var(--foreground);
+}

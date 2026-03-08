@@ -1,0 +1,10 @@
+/* Mobile menu open: header above overlay, overlay behind header content */
+header.menu-open > div {
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  header.menu-open > div {
+    z-index: auto;
+  }
+}

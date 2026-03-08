@@ -1,0 +1,71 @@
+.menu-toggle-inner {
+  top: 50%;
+  transition: all 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition-duration: 0.075s;
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+  &,
+  &:before,
+  &:after {
+    width: 36px;
+    height: 2px;
+    background-color: var(--color-blue-500);
+    border-radius: 1px;
+    position: absolute;
+  }
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+  }
+  &:before {
+    top: -10px;
+    transition:
+      top 0.075s 0.12s ease,
+      opacity 0.075s ease;
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+  &:after {
+    bottom: -10px;
+    transition:
+      bottom 0.075s 0.12s ease,
+      transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+}
+
+/* Hamburger → X when menu is open */
+.open .menu-toggle-inner {
+  transform: rotate(45deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.open .menu-toggle-inner:before {
+  top: 0;
+  opacity: 0;
+  transition:
+    top 0.075s ease,
+    opacity 0.075s 0.12s ease;
+}
+
+.open .menu-toggle-inner:after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition:
+    bottom 0.075s ease,
+    transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .open .menu-toggle-inner,
+  .open .menu-toggle-inner:before,
+  .open .menu-toggle-inner:after {
+    transition: none;
+  }
+}
