@@ -6,9 +6,21 @@
   color: inherit;
 }
 
+/* When icon is present (e.g. mobile menu), flex for full width + justify-between */
+.link-underline:has(.link-underline-icon) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .link-underline-text {
   position: relative;
   color: inherit;
+}
+
+.link-underline-icon {
+  margin-left: 0.625rem;
 }
 
 .link-underline-text::before {

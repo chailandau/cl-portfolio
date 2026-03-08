@@ -6,15 +6,21 @@ type Props = Omit<ComponentProps<typeof RouterLink>, 'children' | 'className' | 
   children: React.ReactNode;
   className?: string;
   to: string;
+  /** Show arrow (e.g. on mobile menu) */
+  icon?: boolean;
 };
 
-export function Link({ className, children, ...props }: Props) {
+export function Link({ className, children, icon = false, ...props }: Props) {
   return (
     <RouterLink
       className={cn('link-underline', className)}
       {...props}
     >
       <span className="link-underline-text">{children}</span>
+      {icon && <span
+        className="link-underline-icon"
+        aria-hidden
+      >{'>'}</span>}
     </RouterLink>
   );
 }
