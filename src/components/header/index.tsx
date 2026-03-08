@@ -10,6 +10,7 @@ import { DesktopNav } from '@/components/header/nav/desktop';
 import { MobileNav } from '@/components/header/nav/mobile';
 import { tabletLgQuery, useMediaQuery } from '@/lib/utils/mediaQueries';
 import MenuToggle from '@/components/header/nav/toggle';
+import LazyAnimatePresence from '@/lib/utils/motion/lazyAnimatePresence';
 import type { MenuProps } from '@/components/menu';
 
 export const Header: FC<MenuProps> = ({ menuItems }) => {
@@ -43,12 +44,19 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
 
     return (
         <FocusTrap active={menuOpen}>
-            <header>
-                <div className='flex flex-row! py-0 px-3 mb-6 relative gap-10 justify-between items-center box-shadow transition-[margin,padding] mobile-lg:px-6 tablet-lg:py-1.5 laptop:mb-12 before:rounded-[8px]'>
-                    <Link
-                      to={'/'}
-                      className={'logo'}
-                    >
+            <header className={menuOpen ? 'menu-open' : undefined}>
+                <div className='relative mb-6 transition-[margin,padding] laptop:mb-12'>
+                    {menuOpen && (
+                        <div
+                          className='fixed -top-4 -left-4 z-[-1] w-[calc(100vw+2rem)] h-[calc(100vh+2rem)] bg-purple-100/90 rounded-lg tablet-lg:hidden'
+                          aria-hidden
+                        />
+                    )}
+                    <div className='relative flex flex-row! py-0 px-3 gap-10 justify-between items-center box-shadow mobile-lg:px-6 tablet-lg:py-1.5 before:rounded-[8px]'>
+                        <Link
+                          to={'/'}
+                          className={'logo'}
+                        >
                         <Image
                           className='size-8'
                           src={Logo}
@@ -58,7 +66,7 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
                         />
                     </Link>
 
-                    <div className='flex nav z-2'>
+                    <div className='flex nav z-2 relative'>
                         {<DesktopNav
                           className="hidden tablet-lg:block"
                           menuItems={menuItems}
@@ -71,15 +79,19 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
                           setMenuOpen={setMenuOpen}
                         />
                     </div>
-                    {menuOpen && (
-                        <MobileNav
-                          className="block lg:hidden"
-                          ariaHidden={!menuOpen}
-                          menuItems={menuItems}
-                          menuOpen={menuOpen}
-                          setMenuOpen={setMenuOpen}
-                        />
-                    )}
+                    <LazyAnimatePresence>
+                        {menuOpen && (
+                            <MobileNav
+                              key="mobile-nav"
+                              className="block tablet-lg:hidden"
+                              ariaHidden={!menuOpen}
+                              menuItems={menuItems}
+                              menuOpen={menuOpen}
+                              setMenuOpen={setMenuOpen}
+                            />
+                        )}
+                    </LazyAnimatePresence>
+                    </div>
                 </div>
             </header>
         </FocusTrap>

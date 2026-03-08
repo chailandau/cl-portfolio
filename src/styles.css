@@ -167,3 +167,41 @@ body {
     }
   }
 }
+
+/* Hamburger → X when menu is open */
+.open .menu-toggle-inner {
+  transform: rotate(45deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.open .menu-toggle-inner:before {
+  top: 0;
+  opacity: 0;
+  transition:
+    top 0.075s ease,
+    opacity 0.075s 0.12s ease;
+}
+.open .menu-toggle-inner:after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition:
+    bottom 0.075s ease,
+    transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .open .menu-toggle-inner,
+  .open .menu-toggle-inner:before,
+  .open .menu-toggle-inner:after {
+    transition: none;
+  }
+}
+
+/* Mobile menu open: header above overlay, overlay behind header content */
+header.menu-open > div {
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  header.menu-open > div {
+    z-index: auto;
+  }
+}

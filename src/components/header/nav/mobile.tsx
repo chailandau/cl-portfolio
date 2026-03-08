@@ -6,7 +6,7 @@ import type { FC } from 'react';
 import { Menu } from '@/components/menu';
 import type { MenuProps } from '@/components/menu';
 import { menuAnimations } from '@/lib/utils/motion/menuAnimations';
-import LazyAnimatePresence from '@/lib/utils/motion/lazyAnimatePresence';
+import LazyMotionDom from '@/lib/utils/motion/lazyMotionDom';
 
 interface MobileNavProps extends MenuProps {
     ariaHidden: boolean;
@@ -16,9 +16,12 @@ export const MobileNav: FC<MobileNavProps> = ({ className, menuItems, ariaHidden
     const prefersReducedMotion = useReducedMotion() || false;
 
     return (
-        <LazyAnimatePresence>
+        <LazyMotionDom>
             <m.nav
-              className={cn('fixed flex flex-col justify-between items-start px-6 top-16.5 l-3 z-100 w-[calc(100%-24px)]h-auto pt-6 pb-7.5 box-shadow mobile-lg:l-5 mobile-lg:w-[calc(100%-40px)]', className)}
+              className={cn(
+                'fixed left-3 top-16.5 z-100 flex w-[calc(100%-24px)] flex-col items-start justify-between rounded-[8px] px-6 pt-6 pb-7.5 box-shadow mobile-lg:left-5 mobile-lg:w-[calc(100%-40px)] tablet-lg:hidden',
+                className
+              )}
               variants={menuAnimations(prefersReducedMotion) as Variants}
               animate={menuOpen ? 'open' : 'closed'}
               initial='closed'
@@ -31,6 +34,6 @@ export const MobileNav: FC<MobileNavProps> = ({ className, menuItems, ariaHidden
                   setMenuOpen={setMenuOpen}
                 />
             </m.nav>
-        </LazyAnimatePresence>
+        </LazyMotionDom>
     );
 };
