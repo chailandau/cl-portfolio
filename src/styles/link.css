@@ -23,6 +23,12 @@
   margin-left: 0.625rem;
 }
 
+@media (min-width: 768px) {
+  .link-underline-icon {
+    display: none;
+  }
+}
+
 .link-underline-text::before {
   content: '';
   position: absolute;

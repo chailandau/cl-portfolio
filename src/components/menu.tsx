@@ -14,7 +14,7 @@ export interface MenuProps {
     menuItems: MenuItems;
     menuOpen?: boolean;
     setMenuOpen?: (menuOpen: boolean) => void;
-    /** Show arrow on mobile (default true). Set false for footer menu. */
+    /** Show arrow on mobile only (below tablet-lg). Default true for header; set false for footer. */
     showIcon?: boolean;
 }
 
