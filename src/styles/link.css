@@ -14,6 +14,12 @@
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .link-underline:has(.link-underline-icon) {
+    width: auto;
+  }
+}
+
 .link-underline-text {
   position: relative;
   color: inherit;

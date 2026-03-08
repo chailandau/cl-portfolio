@@ -8,3 +8,22 @@ header.menu-open > div {
     z-index: auto;
   }
 }
+
+/* Allow nav link touch targets (target-area-flex negative margin) to extend without clipping */
+header .box-shadow,
+header .nav,
+header .nav nav,
+header .nav ul {
+  overflow: visible;
+}
+
+/* Right padding so the last nav link’s touch target (negative margin) isn’t clipped */
+header .nav ul {
+  padding-inline-end: 0.875rem; /* match target-area-flex margin */
+}
+
+/* Logo link: pointer cursor on link and all children (Image/img can override otherwise) */
+header .logo,
+header .logo * {
+  cursor: pointer !important;
+}
