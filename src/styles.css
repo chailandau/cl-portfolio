@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@custom-variant interact {
+  &:hover,
+  &:focus-visible {
+    @slot;
+  }
+}
+
 @import './styles/theme.css';
 @import './styles/base.css';
 @import './styles/utilities.css';

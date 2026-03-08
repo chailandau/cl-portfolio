@@ -10,7 +10,7 @@ interface MenuToggleProps {
 const MenuToggle: FC<MenuToggleProps> = ({ className, menuOpen, setMenuOpen }) => (
         <button
           className={cn(className, 
-            'p-3.5 -mt-1 -mx-3.5 mb-0 flex items-center transition-opacity tablet-lg:hidden hover:opacity-80 hover:transition-opacity', menuOpen && 'open'
+            'p-3.5 -mt-1 -mx-3.5 mb-0 flex items-center transition-opacity tablet-lg:hidden interact:opacity-80 interact:transition-opacity', menuOpen && 'open'
         )}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={'menu toggle'}
