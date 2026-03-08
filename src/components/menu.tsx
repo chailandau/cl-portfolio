@@ -14,12 +14,15 @@ export interface MenuProps {
     menuItems: MenuItems;
     menuOpen?: boolean;
     setMenuOpen?: (menuOpen: boolean) => void;
+    /** Show arrow on mobile (default true). Set false for footer menu. */
+    showIcon?: boolean;
 }
 
 export const Menu: FC<MenuProps> = ({
     menuItems,
     className,
-    setMenuOpen
+    setMenuOpen,
+    showIcon = true
 }) => {
     const isTabletLg = useMediaQuery(tabletLgQuery);
 
@@ -42,7 +45,7 @@ export const Menu: FC<MenuProps> = ({
                 <Link
                   key={menuItem.href}
                   to={menuItem.href}
-                  icon={!isTabletLg}
+                  icon={showIcon && !isTabletLg}
                   className='flex w-full justify-between items-center font-mono text-xl tablet-lg:text-base text-blue-500! tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold tablet-lg:inline-block tablet-lg:w-auto'
                   onClick={handleClick}
                 >
