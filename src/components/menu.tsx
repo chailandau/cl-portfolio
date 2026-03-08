@@ -3,12 +3,15 @@
 import { Link } from '@tanstack/react-router';
 import type { FC } from 'react';
 
-import type { HeaderProps } from '@/components/header';
 import { cn } from '@/lib/utils/cn';
 import { useMediaQuery, tabletLgQuery  } from '@/lib/utils/mediaQueries';
+import type { Nav_MenuItems } from '@/lib/data/nav';
 
-export interface MenuProps extends HeaderProps {
+export type MenuItems = Nav_MenuItems[] | null;
+
+export interface MenuProps {
     className?: string;
+    menuItems: MenuItems;
     menuOpen?: boolean;
     setMenuOpen?: (menuOpen: boolean) => void;
 }

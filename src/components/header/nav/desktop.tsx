@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
-import { Menu } from '@/components/header/nav/menu';
-import type { MenuProps } from '@/components/header/nav/menu';
+import { Menu } from '@/components/menu';
+import type { MenuProps } from '@/components/menu';
 import LazyMotionDom from '@/lib/utils/motion/lazyMotionDom';
 import { cn } from '@/lib/utils/cn';
 

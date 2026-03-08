@@ -5,20 +5,14 @@ import { Link } from '@tanstack/react-router';
 import { Image } from '@unpic/react';
 import Logo from '@/assets/svg/logo.svg';
 
-import type { Nav_MenuItems } from '@/lib/data/nav';
-
 import { setNoScroll } from '@/lib/utils/setNoScroll';
 import { DesktopNav } from '@/components/header/nav/desktop';
 import { MobileNav } from '@/components/header/nav/mobile';
 import { tabletLgQuery, useMediaQuery } from '@/lib/utils/mediaQueries';
 import MenuToggle from '@/components/header/nav/toggle';
+import type { MenuProps } from '@/components/menu';
 
-export interface HeaderProps {
-    /* Nav to pass into header */
-    menuItems?: Nav_MenuItems[] | null;
-}
-
-export const Header: FC<HeaderProps> = ({ menuItems }) => {
+export const Header: FC<MenuProps> = ({ menuItems }) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const isDesktop = useMediaQuery(tabletLgQuery);
