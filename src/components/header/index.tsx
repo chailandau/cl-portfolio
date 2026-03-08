@@ -65,7 +65,7 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
                     >
                         <Link
                           to={'/'}
-                          className={cn('logo', menuOpen && 'pointer-events-auto')}
+                          className={cn('logo target-area-7', menuOpen && 'pointer-events-auto')}
                         >
                         <Image
                           className='size-8'

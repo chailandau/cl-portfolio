@@ -11,6 +11,7 @@ export const Footer = () => (
             <Menu
               menuItems={navItems}
               showIcon={false}
+              showSeparators={false}
               className="[&_a]:text-gray-50! [&_a]:text-sm tablet-lg:[&_a]:text-base [&_li]:w-auto [&_a]:text-left flex-row justify-center tablet-lg:justify-start"
             />
         </div>

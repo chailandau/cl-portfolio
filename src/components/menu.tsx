@@ -16,13 +16,16 @@ export interface MenuProps {
     setMenuOpen?: (menuOpen: boolean) => void;
     /** Show arrow on mobile only (below tablet-lg). Default true for header; set false for footer. */
     showIcon?: boolean;
+    /** Show dashed separator lines between items. Default true for nav; set false for footer. */
+    showSeparators?: boolean;
 }
 
 export const Menu: FC<MenuProps> = ({
     menuItems,
     className,
     setMenuOpen,
-    showIcon = true
+    showIcon = true,
+    showSeparators = true
 }) => {
     const isTabletLg = useMediaQuery(tabletLgQuery);
 
@@ -39,14 +42,14 @@ export const Menu: FC<MenuProps> = ({
                 'flex relative w-full flex-col tablet-lg:block tablet-lg:w-auto',
                 'last:before:hidden',
                 'before:absolute before:left-0 before:block before:content-[""] before:w-full before:h-px before:-bottom-5.5 tablet-lg:before:hidden',
-                'dash-border'
+                showSeparators && 'dash-border'
               )}
             >
                 <Link
                   key={menuItem.href}
                   to={menuItem.href}
                   icon={showIcon && !isTabletLg}
-                  className='flex w-full justify-between items-center font-mono text-xl tablet-lg:text-base text-blue-500! tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold tablet-lg:inline-block tablet-lg:w-auto'
+                  className='target-area-flex flex w-full justify-between items-center font-mono text-xl tablet-lg:text-base text-blue-500! tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold tablet-lg:inline-block tablet-lg:w-auto'
                   onClick={handleClick}
                 >
                     {menuItem.label}

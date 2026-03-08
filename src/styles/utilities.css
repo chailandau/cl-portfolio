@@ -1,3 +1,20 @@
+/* Larger tap/click target for accessibility (padding + negative margin) */
+@utility target-area {
+  display: block;
+  padding: 0.875rem; /* 14px */
+  margin: -0.875rem;
+}
+@utility target-area-flex {
+  display: flex;
+  padding: 0.875rem;
+  margin: -0.875rem;
+}
+@utility target-area-7 {
+  display: block;
+  padding: 0.4375rem; /* 7px */
+  margin: -0.4375rem;
+}
+
 .box-shadow {
   border: 1px solid var(--color-gray-900);
   border-radius: 8px;
