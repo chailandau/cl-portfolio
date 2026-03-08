@@ -80,6 +80,9 @@ html {
 body {
   color: var(--foreground);
   font-family: var(--font-mono) !important;
+  max-width: 62.5rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
 }
 
 .box-shadow {

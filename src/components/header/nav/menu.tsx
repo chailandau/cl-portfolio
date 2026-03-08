@@ -5,7 +5,7 @@ import type { FC } from 'react';
 
 import type { HeaderProps } from '@/components/header';
 import { cn } from '@/lib/utils/cn';
-import { useMediaQuery, tabletLgQuery  } from '@/lib/utils/media-queries';
+import { useMediaQuery, tabletLgQuery  } from '@/lib/utils/mediaQueries';
 
 export interface MenuProps extends HeaderProps {
     className?: string;

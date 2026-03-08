@@ -17,6 +17,9 @@
       ],
       "@/public/*": [
         "./public/*"
+      ],
+      "@/content-collections": [
+        "./.content-collections/generated"
       ]
     },
     "lib": [

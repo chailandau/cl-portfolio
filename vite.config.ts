@@ -1,3 +1,4 @@
+import contentCollections from "@content-collections/vite";
 import { defineConfig } from 'vite';
 import { devtools } from '@tanstack/devtools-vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -12,10 +13,12 @@ const config = defineConfig({
   plugins: [
     devtools(),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
+    contentCollections(),
     tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
+
   ],
 });
 

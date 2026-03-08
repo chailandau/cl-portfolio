@@ -2,13 +2,15 @@ import { FocusTrap } from 'focus-trap-react';
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from '@tanstack/react-router';
+import { Image } from '@unpic/react';
+import Logo from '@/assets/svg/logo.svg';
 
 import type { Nav_MenuItems } from '@/lib/data/nav';
 
 import { setNoScroll } from '@/lib/utils/setNoScroll';
 import { DesktopNav } from '@/components/header/nav/desktop';
 import { MobileNav } from '@/components/header/nav/mobile';
-import { tabletLgQuery, useMediaQuery } from '@/lib/utils/media-queries';
+import { tabletLgQuery, useMediaQuery } from '@/lib/utils/mediaQueries';
 import MenuToggle from '@/components/header/nav/toggle';
 
 export interface HeaderProps {
@@ -53,14 +55,13 @@ export const Header: FC<HeaderProps> = ({ menuItems }) => {
                       to={'/'}
                       className={'logo'}
                     >
-                        home
-                        {/* <Image
-                            className={styles['logo-image']}
-                            src={Logo}
-                            alt='C.'
-                            priority
-                            hasBorder={false}
-                        /> */}
+                        <Image
+                          className='size-8'
+                          src={Logo}
+                          alt='C.'
+                          width={100}
+                          height={100}
+                        />
                     </Link>
 
                     <div className='flex nav z-2'>

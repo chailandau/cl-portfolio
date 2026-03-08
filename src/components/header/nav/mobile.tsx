@@ -5,8 +5,8 @@ import type { FC } from 'react';
 
 import { Menu } from '@/components/header/nav/menu';
 import type { MenuProps } from '@/components/header/nav/menu';
-import { menuAnimations } from '@/lib/utils/motion/menu-animations';
-import LazyAnimatePresence from '@/lib/utils/motion/lazy-animate-presence';
+import { menuAnimations } from '@/lib/utils/motion/menuAnimations';
+import LazyAnimatePresence from '@/lib/utils/motion/lazyAnimatePresence';
 
 interface MobileNavProps extends MenuProps {
     ariaHidden: boolean;
