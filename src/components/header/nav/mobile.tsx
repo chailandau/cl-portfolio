@@ -19,7 +19,7 @@ export const MobileNav: FC<MobileNavProps> = ({ className, menuItems, ariaHidden
         <LazyMotionDom>
             <m.nav
               className={cn(
-                'fixed left-3 top-16.5 z-100 flex w-[calc(100%-24px)] flex-col items-start justify-between rounded-[8px] px-6 pt-6 pb-7.5 box-shadow mobile-lg:left-5 mobile-lg:w-[calc(100%-40px)] tablet-lg:hidden',
+                'fixed left-5 top-16.5 z-100 flex w-[calc(100%-2.5rem)] flex-col items-start justify-between rounded-[8px] px-6 pt-6 pb-7.5 box-shadow tablet-lg:hidden',
                 className
               )}
               variants={menuAnimations(prefersReducedMotion) as Variants}

@@ -10,7 +10,7 @@ export const Footer = () => (
         <div className="w-full px-4 tablet-lg:px-0 tablet-lg:w-auto">
             <Menu
               menuItems={navItems}
-              className="text-gray-50 [&_a]:text-sm tablet-lg:[&_a]:text-base [&_li]:w-auto [&_a]:text-left flex-row justify-center tablet-lg:justify-start"
+              className="[&_a]:text-gray-50! [&_a]:text-sm tablet-lg:[&_a]:text-base [&_li]:w-auto [&_a]:text-left flex-row justify-center tablet-lg:justify-start"
             />
         </div>
         </div>
