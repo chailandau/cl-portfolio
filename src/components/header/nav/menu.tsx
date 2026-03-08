@@ -9,8 +9,8 @@ import { useMediaQuery, tabletLgQuery  } from '@/lib/utils/mediaQueries';
 
 export interface MenuProps extends HeaderProps {
     className?: string;
-    menuOpen: boolean;
-    setMenuOpen: (menuOpen: boolean) => void;
+    menuOpen?: boolean;
+    setMenuOpen?: (menuOpen: boolean) => void;
 }
 
 export const Menu: FC<MenuProps> = ({
@@ -22,7 +22,7 @@ export const Menu: FC<MenuProps> = ({
     const menuContent = menuItems?.map((menuItem) => {
 
         const handleClick = () => {
-            setMenuOpen(false);
+            setMenuOpen?.(false);
         };
 
         return (
@@ -35,7 +35,7 @@ export const Menu: FC<MenuProps> = ({
                 <Link
                   key={menuItem.href}
                   to={menuItem.href}
-                  className='font-mono text-xl tablet-lg:text-base justify-between w-auto tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5'
+                  className='font-mono text-xl tablet-lg:text-base justify-between w-auto tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold'
                     // underline={false}
                   onClick={handleClick}
                 // ariaLabel={menuLabel || ''}

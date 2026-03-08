@@ -12,6 +12,7 @@ export const DesktopNav: FC<MenuProps> = ({ className, menuItems, menuOpen, setM
               menuItems={menuItems}
               menuOpen={menuOpen}
               setMenuOpen={setMenuOpen}
+              className="text-blue-500"
             />
         </nav>
     </LazyMotionDom>
