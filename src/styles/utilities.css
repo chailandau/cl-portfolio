@@ -16,6 +16,7 @@
 }
 
 .box-shadow {
+  position: relative;
   border: 1px solid var(--color-gray-900);
   border-radius: 8px;
   &:before {
@@ -60,10 +61,10 @@
 /* Colored subhead highlight: border + offset shadow + colored fill (matches cl-nextjs Text atom) */
 .colored-subhead-highlight {
   position: relative;
-  display: inline;
+  display: inline-block;
   padding: 2px 6px;
   margin-right: 6px;
-  line-height: 24px;
+  line-height: 26px;
   border: 1px solid var(--color-gray-900);
   border-radius: 8px;
 }
@@ -71,6 +72,12 @@
   .colored-subhead-highlight {
     margin-right: 4px;
     padding: 2px 8px;
+  }
+}
+
+@media (min-width: 600px) {
+  .colored-subhead-highlight {
+    line-height: 34px;
   }
 }
 
@@ -109,4 +116,96 @@
 }
 .colored-subhead-highlight-white {
   --colored-subhead-fill: var(--color-gray-50);
+}
+
+/* About page: image wrapper (uses global .box-shadow; no overflow here so shadow can show) */
+.about-image-box {
+  position: relative;
+}
+.about-image-box-inner {
+  overflow: hidden;
+  border-radius: 7px; /* inside 8px border */
+}
+.about-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 24.375rem;
+}
+.about-image-wrap .about-image-box-inner img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  vertical-align: middle;
+}
+@media (min-width: 992px) {
+  .about-image-wrap .about-image-box-inner img {
+    aspect-ratio: auto;
+  }
+}
+.about-pets {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.about-pet {
+  position: absolute;
+  object-fit: contain;
+}
+/* Match cl-nextjs About.module.scss: rem(112)=7rem, rem(-20)=-1.25rem, rem(2)=0.125rem, etc. */
+.about-pet-warren {
+  width: 7rem; /* rem(112) */
+  transform: rotate(-14deg);
+  top: -1.25rem; /* rem(-20) */
+  left: 0.125rem; /* rem(2) */
+}
+@media (min-width: 600px) {
+  .about-pet-warren {
+    width: 8.5rem; /* rem(136) tablet */
+  }
+}
+.about-pet-harvey {
+  width: 4.125rem; /* rem(66) */
+  left: 46%;
+  top: 1.875rem; /* rem(30) */
+}
+@media (min-width: 600px) {
+  .about-pet-harvey {
+    width: 5rem; /* rem(80) tablet */
+  }
+}
+.about-pet-athena {
+  width: 4.5rem; /* rem(72) */
+  right: 0.75rem; /* rem(12) */
+  top: -2.625rem; /* rem(-42) */
+}
+@media (min-width: 600px) {
+  .about-pet-athena {
+    width: 5.25rem; /* rem(84) tablet */
+  }
+}
+/* Jasper: match cl-nextjs compiled breakpoints */
+.about-pet-jasper {
+  width: 4.375rem; /* 70px */
+  left: -8%;
+  top: -9rem;
+}
+@media (min-width: 600px) {
+  .about-pet-jasper {
+    width: 5.25rem;
+    top: -11.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .about-pet-jasper {
+    top: -9rem;
+  }
+}
+@media (min-width: 992px) {
+  .about-pet-jasper {
+    left: -14%;
+    top: -8rem;
+  }
 }

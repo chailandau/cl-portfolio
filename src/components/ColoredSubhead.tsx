@@ -30,7 +30,7 @@ export function ColoredSubhead({
   return (
     <p
       className={cn(
-        'max-w-200 font-sans text-foreground text-subhead leading-18!',
+        'max-w-200 font-sans text-foreground text-subhead leading-14! tablet:leading-18!',
         className,
       )}
     >
