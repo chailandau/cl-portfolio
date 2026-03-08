@@ -6,6 +6,7 @@ import { Image } from '@unpic/react';
 import Logo from '@/assets/svg/logo.svg';
 
 import { setNoScroll } from '@/lib/utils/setNoScroll';
+import { cn } from '@/lib/utils/cn';
 import { DesktopNav } from '@/components/header/nav/desktop';
 import { MobileNav } from '@/components/header/nav/mobile';
 import { tabletLgQuery, useMediaQuery } from '@/lib/utils/mediaQueries';
@@ -19,6 +20,8 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
     const isDesktop = useMediaQuery(tabletLgQuery);
 
     useEffect(() => {
+        if (!menuOpen) return;
+
         const handleEscapeKey = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
                 setMenuOpen(false);
@@ -30,7 +33,7 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
         return () => {
             document.removeEventListener('keydown', handleEscapeKey);
         };
-    }, []);
+    }, [menuOpen]);
 
     useEffect(() => {
         setNoScroll(menuOpen);
@@ -48,14 +51,21 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
                 <div className='relative mb-6 transition-[margin,padding] laptop:mb-12'>
                     {menuOpen && (
                         <div
-                          className='fixed -top-4 -left-4 z-[-1] w-[calc(100vw+2rem)] h-[calc(100vh+2rem)] bg-purple-100/90 rounded-lg tablet-lg:hidden'
+                          className='fixed -top-4 -left-4 z-10 w-[calc(100vw+2rem)] h-[calc(100vh+2rem)] bg-purple-100/90 rounded-lg tablet-lg:hidden'
                           aria-hidden
+                          onClick={() => setMenuOpen(false)}
+                          role="presentation"
                         />
                     )}
-                    <div className='relative flex flex-row! py-0 px-3 gap-10 justify-between items-center box-shadow mobile-lg:px-6 tablet-lg:py-1.5 before:rounded-[8px]'>
+                    <div
+                      className={cn(
+                        'relative flex flex-row! py-0 px-3 gap-10 justify-between items-center box-shadow mobile-lg:px-6 tablet-lg:py-1.5 before:rounded-[8px]',
+                        menuOpen && 'pointer-events-none z-20'
+                      )}
+                    >
                         <Link
                           to={'/'}
-                          className={'logo'}
+                          className={cn('logo', menuOpen && 'pointer-events-auto')}
                         >
                         <Image
                           className='size-8'
@@ -66,7 +76,7 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
                         />
                     </Link>
 
-                    <div className='flex nav z-2 relative'>
+                    <div className={cn('flex nav z-2 relative', menuOpen && 'pointer-events-auto')}>
                         {<DesktopNav
                           className="hidden tablet-lg:block"
                           menuItems={menuItems}
@@ -83,7 +93,7 @@ export const Header: FC<MenuProps> = ({ menuItems }) => {
                         {menuOpen && (
                             <MobileNav
                               key="mobile-nav"
-                              className="block tablet-lg:hidden"
+                              className="block tablet-lg:hidden pointer-events-auto"
                               ariaHidden={!menuOpen}
                               menuItems={menuItems}
                               menuOpen={menuOpen}
