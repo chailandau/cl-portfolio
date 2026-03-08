@@ -12,14 +12,14 @@ function CaseStudyComponent() {
   return (
     <article className="post">
       <header>
-        <h2>{caseStudy?.title}</h2>
+        <h2>{caseStudy.title}</h2>
       </header>
       <div
         className="content"
-        dangerouslySetInnerHTML={{ __html: caseStudy?.content }}
+        dangerouslySetInnerHTML={{ __html: caseStudy.content }}
       />
       <footer>
-        <p>By {caseStudy?.company}</p>
+        <p>By {caseStudy.company}</p>
       </footer>
     </article>
   );

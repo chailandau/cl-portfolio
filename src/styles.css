@@ -12,6 +12,7 @@
 
 @import './styles/theme.css';
 @import './styles/base.css';
+@import './styles/typography.css';
 @import './styles/utilities.css';
 @import './styles/link.css';
 @import './styles/menu-toggle.css';

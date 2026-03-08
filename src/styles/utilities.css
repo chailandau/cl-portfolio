@@ -56,3 +56,57 @@
     background-repeat: repeat-x;
   }
 }
+
+/* Colored subhead highlight: border + offset shadow + colored fill (matches cl-nextjs Text atom) */
+.colored-subhead-highlight {
+  position: relative;
+  display: inline;
+  padding: 2px 6px;
+  margin-right: 6px;
+  line-height: 24px;
+  border: 1px solid var(--color-gray-900);
+  border-radius: 8px;
+}
+@media (min-width: 420px) {
+  .colored-subhead-highlight {
+    margin-right: 4px;
+    padding: 2px 8px;
+  }
+}
+
+@media (min-width: 420px) {
+  .colored-subhead-highlight {
+    padding: 2px 8px;
+  }
+}
+.colored-subhead-highlight::before,
+.colored-subhead-highlight::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 10px;
+}
+.colored-subhead-highlight::before {
+  background-color: var(--color-gray-900);
+  top: 6px;
+  left: 6px;
+  border-radius: 10px;
+}
+.colored-subhead-highlight::after {
+  background-color: var(--colored-subhead-fill);
+  border-radius: 8px;
+}
+.colored-subhead-highlight-aqua {
+  --colored-subhead-fill: var(--color-aqua-400);
+}
+.colored-subhead-highlight-pink {
+  --colored-subhead-fill: var(--color-pink-300);
+}
+.colored-subhead-highlight-white {
+  --colored-subhead-fill: var(--color-gray-50);
+}

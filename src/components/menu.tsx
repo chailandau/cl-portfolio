@@ -49,7 +49,7 @@ export const Menu: FC<MenuProps> = ({
                   key={menuItem.href}
                   to={menuItem.href}
                   icon={showIcon && !isTabletLg}
-                  className='target-area-flex flex w-full justify-between items-center font-mono text-xl tablet-lg:text-base text-blue-500! tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold tablet-lg:inline-block tablet-lg:w-auto'
+                  className='target-area-flex flex w-full justify-between items-center menu-link text-blue-500! tablet-lg:justify-center text-center before:hidden tablet-lg:before:block before:w-[calc(100%-40px)] before:l-5 font-semibold tablet-lg:inline-block tablet-lg:w-auto'
                   onClick={handleClick}
                 >
                     {menuItem.label}

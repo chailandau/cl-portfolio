@@ -26,7 +26,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Chai Landau - Design Engineer',
       },
     ],
     links: [
@@ -49,7 +49,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="antialiased">
+      <body>
         <Header menuItems={navItems} />
         {children}
         <Footer />

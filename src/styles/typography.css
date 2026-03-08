@@ -1,0 +1,162 @@
+/* Typography – Text & Display (heading) classes from cl-nextjs atoms */
+/* Breakpoints: mobile-lg 420px, tablet 600px, laptop 992px (from theme) */
+
+/* ---- Text (body) ---- */
+.text-xs {
+  font-size: 1rem; /* 16px */
+  line-height: 1.75rem; /* 28px */
+}
+
+.text-sm {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 600px) {
+  .text-sm {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.875rem; /* 30px */
+  }
+}
+
+.text-md {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.875rem; /* 30px */
+}
+@media (min-width: 600px) {
+  .text-md {
+    font-size: 1.375rem; /* 22px */
+    line-height: 2rem; /* 32px */
+  }
+}
+
+.text-lg {
+  font-size: 1.5rem; /* 24px */
+  line-height: 3rem; /* 48px */
+}
+@media (min-width: 600px) {
+  .text-lg {
+    font-size: 1.75rem; /* 28px */
+    line-height: 3.25rem; /* 52px */
+  }
+}
+@media (min-width: 992px) {
+  .text-lg {
+    font-size: 2rem; /* 32px */
+    line-height: 3.5rem; /* 56px */
+  }
+}
+
+.text-xl {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.625rem; /* 26px */
+  line-height: 3.375rem; /* 54px */
+}
+@media (min-width: 600px) {
+  .text-xl {
+    font-size: 2rem; /* 32px */
+    line-height: 4.125rem; /* 66px */
+  }
+}
+
+.text-subhead {
+  font-size: 17px;
+  line-height: 26px;
+}
+
+@media (min-width: 420px) {
+  .text-subhead {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (min-width: 600px) {
+  .text-subhead {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+/* ---- Display (heading), prefixed display- ---- */
+.display-sm {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.875rem; /* 30px */
+}
+@media (min-width: 600px) {
+  .display-sm {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+}
+@media (min-width: 992px) {
+  .display-sm {
+    font-size: 2rem; /* 32px */
+    line-height: 2.5rem; /* 40px */
+  }
+}
+
+.display-md {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+}
+@media (min-width: 600px) {
+  .display-md {
+    font-size: 2.25rem; /* 36px */
+    line-height: 3rem; /* 48px */
+  }
+}
+
+.display-lg {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.75rem; /* 44px */
+}
+@media (min-width: 600px) {
+  .display-lg {
+    font-size: 3rem; /* 48px */
+    line-height: 3.625rem; /* 58px */
+  }
+}
+@media (min-width: 992px) {
+  .display-lg {
+    font-size: 3.375rem; /* 54px */
+    line-height: 4rem; /* 64px */
+  }
+}
+
+.display-xl {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 2.5rem; /* 40px */
+  line-height: 3rem; /* 48px */
+}
+@media (min-width: 420px) {
+  .display-xl {
+    font-size: 3rem; /* 48px */
+    line-height: 3.625rem; /* 58px */
+  }
+}
+@media (min-width: 992px) {
+  .display-xl {
+    font-size: 4rem; /* 64px */
+    line-height: 4.5rem; /* 72px */
+  }
+}
+
+.menu-link {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+@media (min-width: 600px) {
+  .menu-link {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
