@@ -1,8 +1,6 @@
 @import './assets/fonts/fonts.css';
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @custom-variant interact {
   &:hover,
   &:focus-visible {
