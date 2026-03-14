@@ -7,12 +7,14 @@
   },
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "vite build && tsc --noEmit",
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier --check .",
-    "check": "prettier --write . && eslint --fix"
+    "check": "prettier --write . && eslint --fix",
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -33,6 +35,7 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.28.0",
     "@content-collections/core": "^0.14.2",
     "@content-collections/vite": "^0.2.9",
     "@tailwindcss/typography": "^0.5.16",
@@ -54,6 +57,7 @@
     "vite": "^7.3.1",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.5",
+    "wrangler": "^4.73.0",
     "zod": "^4.3.6"
   },
   "pnpm": {
