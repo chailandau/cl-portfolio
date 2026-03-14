@@ -1,23 +1,40 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { allCaseStudies } from "@/content-collections";
+import { ColoredSubhead, Highlight } from '@/components/ColoredSubhead';
+import { Link } from '@/components/Link';
 
-export const Route = createFileRoute('/')({ component: App });
+export const Route = createFileRoute('/')({ component: Home });
 
-function App() {
+const WAVE_ICON = '/images/icons/wave.png';
+
+function Home() {
   return (
     <main className="page-wrap px-4 pb-8 pt-14">
-      <h1>Home</h1>
-      <ul>
-      {allCaseStudies.map((caseStudy) => (
-        <li key={caseStudy._meta.path}>
-          <a href={`/case-studies/${caseStudy._meta.path}`}>
-            <h3>{caseStudy.title}</h3>
-            <p>{caseStudy.summary}</p>
-            <p>{caseStudy.company}</p>
-          </a>
-        </li>
-      ))}
-    </ul>
+      <section className="flex flex-col gap-12 tablet:gap-16">
+        <img
+          src={WAVE_ICON}
+          alt=""
+          width={64}
+          height={64}
+          className="size-16"
+          aria-hidden
+        />
+        <h1 className="display-xl text-blue-500">
+          Hi, I'm Chai.
+        </h1>
+        <ColoredSubhead large>
+          I'm a <Highlight variant="aqua">design engineer</Highlight> obsessed
+          with <Highlight variant="white">accessibility</Highlight> and{' '}
+          <Highlight variant="pink">user experience</Highlight>
+        </ColoredSubhead>
+        <Link
+          to="/about"
+          className="text-blue-500! text-sm font-bold lowercase"
+          icon
+          row
+        >
+          learn more
+        </Link>
+      </section>
     </main>
   );
 }

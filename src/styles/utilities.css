@@ -140,6 +140,49 @@
 .colored-subhead-highlight-white {
   --colored-subhead-fill: var(--color-gray-50);
 }
+.colored-subhead-highlight-green {
+  --colored-subhead-fill: var(--color-green-400);
+}
+.colored-subhead-highlight-gray {
+  --colored-subhead-fill: var(--color-gray-400);
+}
+
+/* Large subhead: section line-height 64px / 80px (highlights keep their own) */
+.colored-subhead-large {
+  line-height: 64px;
+}
+@media (min-width: 600px) {
+  .colored-subhead-large {
+    line-height: 80px;
+  }
+}
+
+/* Large highlight: echoes text-subhead-lg for the spans only */
+.colored-subhead-large .colored-subhead-highlight {
+  padding: 3px 9px;
+  margin-right: 6px;
+  line-height: 30px;
+  border-radius: 10px;
+}
+.colored-subhead-large .colored-subhead-highlight::before {
+  top: 7px;
+  left: 7px;
+  border-radius: 12px;
+}
+.colored-subhead-large .colored-subhead-highlight::after {
+  border-radius: 10px;
+}
+@media (min-width: 600px) {
+  .colored-subhead-large .colored-subhead-highlight {
+    padding: 4px 12px;
+    margin-right: 6px;
+    line-height: 44px;
+  }
+  .colored-subhead-large .colored-subhead-highlight::before {
+    top: 8px;
+    left: 8px;
+  }
+}
 
 /* About page: image wrapper (uses global .box-shadow; no overflow here so shadow can show) */
 .about-image-box {

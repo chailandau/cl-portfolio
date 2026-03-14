@@ -8,19 +8,36 @@ type Props = Omit<ComponentProps<typeof RouterLink>, 'children' | 'className' | 
   to: string;
   /** Show arrow (e.g. on mobile menu) */
   icon?: boolean;
+  /** Row layout: underline + arrow always visible, hover fill like social links */
+  row?: boolean;
 };
 
-export function Link({ className, children, icon = false, ...props }: Props) {
+export function Link({ className, children, icon = false, row = false, ...props }: Props) {
+  const content = (
+    <>
+      <span className="link-underline-text">{children}</span>
+      {icon && (
+        <span className="link-underline-icon" aria-hidden>
+          {'>'}
+        </span>
+      )}
+    </>
+  );
+
   return (
     <RouterLink
-      className={cn('link-underline', className)}
+      className={cn(
+        'link-underline',
+        row && 'link-underline--row font-medium',
+        className,
+      )}
       {...props}
     >
-      <span className="link-underline-text">{children}</span>
-      {icon && <span
-        className="link-underline-icon"
-        aria-hidden
-      >{'>'}</span>}
+      {row && icon ? (
+        <span className="link-underline-row-content">{content}</span>
+      ) : (
+        content
+      )}
     </RouterLink>
   );
 }
