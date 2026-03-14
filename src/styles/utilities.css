@@ -59,6 +59,28 @@
   }
 }
 
+/* Dashed line on top (e.g. above socials) */
+.dash-border-top {
+  position: relative;
+  padding-top: 3rem;
+}
+
+.dash-border-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-gray-400) 50%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
+}
+
 /* Colored subhead highlight: border + offset shadow + colored fill (matches cl-nextjs Text atom) */
 .colored-subhead-highlight {
   position: relative;

@@ -6,6 +6,19 @@
   color: inherit;
 }
 
+/* Row layout: icon + text (e.g. socials) */
+.link-underline--row {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Row with arrow: keep gap layout, don’t use space-between / full width */
+.link-underline--row.link-underline:has(.link-underline-icon) {
+  justify-content: flex-start;
+  width: max-content;
+}
+
 /* When icon is present (e.g. mobile menu), flex for full width + justify-between */
 .link-underline:has(.link-underline-icon) {
   display: flex;
@@ -35,6 +48,13 @@
   }
 }
 
+/* Socials / row links: always show arrow, match original size (20px), bolder */
+.link-underline--row .link-underline-icon {
+  display: inline;
+  font-size: 1.25rem; /* 20px, matches original link font */
+  font-weight: 700;
+}
+
 .link-underline-text::before {
   content: '';
   position: absolute;
@@ -51,8 +71,70 @@
   display: block;
 }
 
+/* Row links (socials): underline always visible, growing blue fill behind text+arrow on hover, text+arrow turn light gray */
+.link-underline--row .link-underline-row-content {
+  position: relative;
+  overflow: visible;
+}
+
+/* Tighter line-height so underline sits just under the text (matches original) */
+.link-underline--row .link-underline-text {
+  line-height: 1.3;
+  position: relative;
+}
+
+.link-underline--row .link-underline-text::before {
+  display: block;
+  background-color: var(--color-blue-500);
+  bottom: -0.75rem; /* further down under the text */
+}
+
+/* Growing fill on same element as underline so it starts precisely at the underline and grows upward */
+.link-underline--row .link-underline-text::after {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  bottom: -0.75rem;
+  width: calc(100% + 2.5rem);
+  height: calc(100% + 1rem);
+  background-color: var(--color-blue-500);
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s ease;
+}
+
+.link-underline--row:hover .link-underline-text::after,
+.link-underline--row:focus-visible .link-underline-text::after {
+  transform: scaleY(1);
+}
+
+.link-underline--row .link-underline-text,
+.link-underline--row .link-underline-icon {
+  transition: color 0.2s ease;
+}
+
+.link-underline--row:hover .link-underline-text,
+.link-underline--row:hover .link-underline-icon,
+.link-underline--row:focus-visible .link-underline-text,
+.link-underline--row:focus-visible .link-underline-icon {
+  color: var(--color-gray-50);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .link-underline-text::before {
     transition: none;
   }
+  .link-underline--row .link-underline-text::after {
+    transition: none;
+  }
+  .link-underline--row .link-underline-text,
+  .link-underline--row .link-underline-icon {
+    transition: none;
+  }
+}
+
+/* Socials list: each item only as wide as its link so hover area isn’t the full line */
+.socials-list-item {
+  width: fit-content;
 }
