@@ -5,10 +5,6 @@ export interface Nav_MenuItems {
 
 export const navItems: Nav_MenuItems[] = [
   {
-    label: 'work',
-    href: '/work',
-  },
-  {
     label: 'about',
     href: '/about',
   },
