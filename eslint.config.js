@@ -32,7 +32,12 @@ export default [
     },
   },
   {
-    ignores: ['eslint.config.js', 'prettier.config.js'],
+    ignores: [
+      'eslint.config.js',
+      'prettier.config.js',
+      '.content-collections/**',
+      '.output/**',
+    ],
   },
   {
     files: ['**/*.{js,ts,jsx,tsx}'],

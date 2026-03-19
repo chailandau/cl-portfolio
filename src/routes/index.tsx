@@ -36,19 +36,21 @@ function Home() {
         </Link>
         <div className="dash-border-top w-full mt-10">
           <div className="flex flex-col gap-2 mt-10">
-          <p>
-            currently: design engineer at{' '}
-            <a
-              href="https://block.xyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline text-blue-500! font-bold lowercase"
-            >
-              <span className="link-underline-text">block</span>
-            </a>
-            .
-          </p>
-          <p className="mt-8">case studies: coming soon.</p>
+            <p>
+              <span className="block mobile-lg:inline">currently: </span>design engineer at{' '}
+              <a
+                href="https://block.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline text-blue-500! font-bold lowercase"
+              >
+                <span className="link-underline-text">block</span>
+              </a>
+              .
+            </p>
+            <p className="mt-8">
+              <span className="block mobile-lg:inline">case studies: </span>coming soon.
+            </p>
           </div>
         </div>
       </section>

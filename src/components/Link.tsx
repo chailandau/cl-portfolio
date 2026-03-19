@@ -17,7 +17,10 @@ export function Link({ className, children, icon = false, row = false, ...props 
     <>
       <span className="link-underline-text">{children}</span>
       {icon && (
-        <span className="link-underline-icon" aria-hidden>
+        <span
+          className="link-underline-icon"
+          aria-hidden
+        >
           {'>'}
         </span>
       )}
