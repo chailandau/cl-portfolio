@@ -2,7 +2,6 @@ import contentCollections from "@content-collections/vite";
 import { defineConfig } from 'vite';
 import { devtools } from '@tanstack/devtools-vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { cloudflare } from '@cloudflare/vite-plugin';
 
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 
@@ -17,10 +16,8 @@ const config = defineConfig({
     contentCollections(),
     tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tanstackStart(),
     viteReact(),
-
   ],
 });
 
