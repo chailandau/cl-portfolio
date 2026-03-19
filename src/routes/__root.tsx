@@ -26,6 +26,10 @@ export const Route = createRootRoute({
       {
         title: 'Chai Landau - Design Engineer',
       },
+      {
+        property: 'og:image', content: '/images/open-graph.png',
+
+      }
     ],
     links: [
       {
